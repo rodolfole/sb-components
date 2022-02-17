@@ -7,6 +7,11 @@ export type MyLabelProps = {
   allCaps?: boolean;
 
   /**
+   * Color de fondo personalizado de la fuente
+   */
+  backgroundColor?: string;
+
+  /**
    * Colores básicos del bóton
    */
   color?: "primary" | "secondary" | "tertiary";
@@ -29,6 +34,7 @@ export type MyLabelProps = {
 
 export const MyLabel = ({
   allCaps = false,
+  backgroundColor = "transparent",
   color = "primary",
   fontColor,
   label = "No Label",
@@ -37,7 +43,7 @@ export const MyLabel = ({
   return (
     <span
       className={`label ${size} text-${color}`}
-      style={{ color: fontColor }}
+      style={{ backgroundColor, color: fontColor }}
     >
       {allCaps ? label.toUpperCase() : label}
     </span>
